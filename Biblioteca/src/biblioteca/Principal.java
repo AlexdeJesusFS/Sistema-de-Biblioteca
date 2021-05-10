@@ -8,11 +8,13 @@ public class Principal {
     	new CriaDiretorios();
     	Autores[] exemplo = new Autores[1];
     	exemplo[0] = new Autores("JJ. James");
-        Exemplar l0 = new Exemplar(010101, "7 advogados e um cliente", exemplo , "ADV Books", "Direito civil", 100, 29, 04, 2021);
-        Funcionario f0 = new Funcionario("ADV01", "Demolidor");      
+        Livro l = new Livro(010101, "7 advogados e um cliente", exemplo , "ADV Books", "Direito civil");
+        Exemplar e = new Exemplar(010101, "7 advogados e um cliente", exemplo , "ADV Books", "Direito civil", 100, 29, 04, 2021);
+        Funcionario f = new Funcionario("ADV01", "Demolidor");      
         Biblioteca b = new Biblioteca();
-        b.cadastrar(l0);
-        b.cadastrar(f0);         
+        b.cadastrar(l);
+        b.cadastrar(e);
+        b.cadastrar(f);         
         
         String resposta = "";
         int i = 1;
@@ -23,13 +25,19 @@ public class Principal {
             b.executar(comando, b);           
             System.out.println("Continuar? sim[s] ou nao[n] :");
             resposta = tecla.nextLine();
+            if (!resposta.equals("s")) {
+                while ( (!resposta.equals("s")) && (!resposta.equals("n")) ) {
+                    System.out.println("Digite [s] ou [n] :");
+                    resposta = tecla.nextLine();                   
+                }
             if (resposta.equals("n")) {
                 break;
-            }
-        }
-        System.out.println("");
-        System.out.println("Sistema encerrado.");   
+            } 
+        }  
+          
     }
-    
+        System.out.println("");
+        System.out.println("Sistema encerrado."); 
+    }
     
 }

@@ -14,24 +14,24 @@ public class NewFile {
     public static void main(String[] args) {
         
         //listaArquivo();//exibe os diretorios absolutos dos arquivos
-        pesquisar("c:/Biblioteca/Livros", "Adv Books");
+        pesquisar("c:/Biblioteca/livro", "Adv Books");
         
         
     }
     
-    public static void pesquisar(String caminho, String nome) {
-        File arquivo = new File(caminho);                  
-                              //listFiles retorna um vetor
-        File lista [] = arquivo.listFiles();//o vetor "lista" recebe o vetor de "arquivo". 
-        int n = 0;        
-        for (int i=0; i<lista.length; i++) {
-           try {         
+    public static void pesquisar(String caminho, String nome) {      
+        try {
+            File arquivo = new File(caminho);                  
+                                  //listFiles retorna um vetor
+            File lista [] = arquivo.listFiles();//o vetor "lista" recebe o vetor de "arquivo". 
+            int n = 0;        
+            for (int i=0; i<lista.length; i++) {
+
                 FileReader ler = new FileReader(lista[i]);
                 BufferedReader lerb = new BufferedReader(ler);
                 String linha = "";
-                
-                while ( (linha = lerb.readLine()) != null ) {
 
+                while ( (linha = lerb.readLine()) != null ) {
                     if (linha.equals(nome.toLowerCase())) {
                         System.out.println("");
                         ler(lista[i]); 
@@ -41,15 +41,15 @@ public class NewFile {
                 }
                 lerb.close();
                 ler.close(); 
-                
-           } catch (IOException e) {
-                System.out.println(e.toString());                
-            }         
-        }
-        if (n == 0) {
-            System.out.println("Não encontrado.");
-        }                   
-    }
+            }
+            if (n == 0) {
+            System.out.println("Não encontrado. Nao cadastrado ou nome incorreto.\n");
+            } 
+        } catch (IOException e) {
+            e.printStackTrace();                
+        }                                         
+    }      
+    
     
     public static void listaArquivo() {
         File arquivo = new File("c:/Biblioteca/Livros");

@@ -144,22 +144,22 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
                              + "[2]pesquisar livro pelo autor\n"
                              + "[3]pesquisar livro pelo editora\n"
                              + "Digite o numero da opçao desejada:");
-                int opcaoL = tecla1.nextInt();
+                int opcaoL = tecla.nextInt();
                 switch (opcaoL) {
                     case 1:
                         System.out.println("Digite o titulo do livro:\n");
                         String tituloL = tecla1.nextLine();
-                        pesquisar("C:\\Biblioteca\\livros", tituloL);
+                        pesquisar("C:/Biblioteca/livro", tituloL);
                         break;
                     case 2:
                         System.out.println("Digite o autor do livro:\n");
                         String autorL = tecla1.nextLine();
-                        pesquisar("C:\\Biblioteca\\livros", autorL);
+                        pesquisar("C:/Biblioteca/livro", autorL);
                         break;
                     case 3:
                         System.out.println("Digite a editora do livro:\n");
                         String editoraL = tecla1.nextLine();
-                        pesquisar("C:\\Biblioteca\\livros", editoraL); 
+                        pesquisar("C:/Biblioteca/livro", editoraL); 
                         break;
                 }  
                 break;
@@ -184,7 +184,7 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
                              + "[2]pesquisar livro pelo autor\n"
                              + "[3]pesquisar livro pelo editora\n"
                              + "Digite o numero da opçao desejada:");
-            int opcao = tecla1.nextInt();
+            int opcao = tecla.nextInt();
             switch (opcao) {
                 case 1:
                     System.out.println("Digite o titulo do livro:\n");
@@ -284,16 +284,17 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
     } 
     
     public void pesquisar(String caminho, String nome) {
-        File arquivo = new File(caminho);                  
-                              //listFiles retorna um vetor
-        File lista [] = arquivo.listFiles();//o vetor "lista" recebe o vetor de "arquivo". 
-        int n = 0;        
-        for (int i=0; i<lista.length; i++) {
-            try {         
+        try {
+            File arquivo = new File(caminho);                  
+                                  //listFiles retorna um vetor
+            File lista [] = arquivo.listFiles();//o vetor "lista" recebe o vetor de "arquivo". 
+            int n = 0;        
+            for (int i=0; i<lista.length; i++) {
+
                 FileReader ler = new FileReader(lista[i]);
                 BufferedReader lerb = new BufferedReader(ler);
                 String linha = "";
-                
+
                 while ( (linha = lerb.readLine()) != null ) {
                     if (linha.equals(nome.toLowerCase())) {
                         System.out.println("");
@@ -302,17 +303,15 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
                         n++;
                     }                                                  
                 }
-                
                 lerb.close();
                 ler.close(); 
-                
-            } catch (IOException e) {
-                e.printStackTrace();                
-            }         
-        }
-        if (n == 0) {
+            }
+            if (n == 0) {
             System.out.println("Não encontrado. Nao cadastrado ou nome incorreto.\n");
-        }                   
+            } 
+        } catch (IOException e) {
+            e.printStackTrace();                
+        }                                         
     }
     
     public void ler(File caminho) {

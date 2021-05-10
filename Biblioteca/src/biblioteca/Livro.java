@@ -89,7 +89,7 @@ public class Livro {
             	printWriter.flush();
                        	
             	printWriter.close();
-                System.out.println("Livro cadsatrado com sucesso!");
+                System.out.println("Livro cadastrado com sucesso!");
             } catch (IOException e) {
                 e.printStackTrace();
             }

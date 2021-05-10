@@ -55,7 +55,7 @@ public class Funcionario {
             	printWriter.flush();
             	
             	printWriter.close();
-                System.out.println("Funcionario cadsatrado com sucesso!");
+                System.out.println("Funcionario cadastrado com sucesso!");
             } catch(IOException e) {
                 e.printStackTrace();
             }

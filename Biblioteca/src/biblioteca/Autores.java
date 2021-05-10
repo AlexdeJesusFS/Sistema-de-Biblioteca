@@ -63,7 +63,7 @@ public class Autores {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Caminho especificado n�o existe.");
+            System.out.println("Caminho especificado nao existe.");
         }
    }
     
@@ -101,7 +101,7 @@ public class Autores {
    	 if(arquivo.delete()) {
             System.out.println("Deletado aquivo "+arquivo.getName());
         } else {
-            System.out.println("Arquivo n�o existe.");
+            System.out.println("Arquivo nao existe.");
   	}
    }
    

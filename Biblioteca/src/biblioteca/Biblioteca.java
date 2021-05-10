@@ -43,7 +43,8 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
                 String nome = tecla1.nextLine();
                 System.out.println("Digite a quantidade de autores do livro:");
                 int qtd = tecla.nextInt();
-                Autores[] autor = cadastraAutores(qtd, tecla);
+                System.out.println("Digite o nome do autor ou dos autores:");
+                Autores[] autor = cadastraAutores(qtd+1, tecla);
                 System.out.println("Digite a editora do Livro:");
                 String editora = tecla.nextLine();
                 System.out.println("Digite a area do Livro:");
@@ -53,11 +54,11 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
                 System.out.println("Digite o dia de aquisicao deste Livro(dd):");
                 int dia = tecla.nextInt();
                 System.out.println("Digite o mes de aquisicao deste Livro(mm):");
-                int mes = tecla.nextInt();
+                int mes = tecla.nextInt() - 1;
                 System.out.println("Digite o ano de aquisicao deste Livro(aaaa):");
                 int ano = tecla.nextInt();
                 Livro l = new Livro(codigo, nome, autor, editora, area);
-                Livro e = new Exemplar(codigo, nome, autor, editora, area, preco, dia, mes, ano);
+                Exemplar e = new Exemplar(codigo, nome, autor, editora, area, preco, dia, mes, ano);
                 b.cadastrar(l);
                 b.cadastrar(e);                
                 break;
@@ -69,7 +70,8 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
                 String nomeE = tecla1.nextLine();
                 System.out.println("Digite a quantidade de autores do livro:");
                 int qtdE = tecla.nextInt();
-                Autores[] autorE = cadastraAutores(qtdE, tecla);
+                System.out.println("Digite o nome do autor ou dos autores:");
+                Autores[] autorE = cadastraAutores(qtdE+1, tecla);
                 System.out.println("Digite a editora do Livro:");
                 String editoraE = tecla.nextLine();
                 System.out.println("Digite a area do Livro:");
@@ -79,10 +81,10 @@ public class Biblioteca {//Essa é a classe Movimentação do UML
                 System.out.println("Digite o dia de aquisicao deste Livro(dd):");
                 int diaE = tecla.nextInt();
                 System.out.println("Digite o mes de aquisicao deste Livro(mm):");
-                int mesE = tecla.nextInt();
+                int mesE = tecla.nextInt() - 1;
                 System.out.println("Digite o ano de aquisicao deste Livro(aaaa):");
                 int anoE = tecla.nextInt();               
-                Livro eE = new Exemplar(codigoE, nomeE, autorE, editoraE, areaE, precoE, diaE, mesE, anoE);                
+                Exemplar eE = new Exemplar(codigoE, nomeE, autorE, editoraE, areaE, precoE, diaE, mesE, anoE);                
                 b.cadastrar(eE);                
             	break;
                 

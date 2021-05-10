@@ -63,7 +63,7 @@ public class Exemplar extends Livro {
             
             	//No final precisamos fechar o arquivo
             	printWriter.close();
-            
+                System.out.println("Exemplar cadsatrado com sucesso!");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -69,7 +69,9 @@ public class Livro {
      public void registrarLivro() {
     	File caminho = new File("C:/Biblioteca/livro");
     	File arquivo = new File(caminho, String.valueOf(getCodigo())+".txt" );
-    	if(!(caminho.exists())); caminho.mkdir();
+    	if(!(caminho.exists())) {
+            caminho.mkdir();
+        }    
     	if(!(arquivo.exists())) {
             try {
             
@@ -87,7 +89,7 @@ public class Livro {
             	printWriter.flush();
                        	
             	printWriter.close();
-            
+                System.out.println("Livro cadsatrado com sucesso!");
             } catch (IOException e) {
                 e.printStackTrace();
             }
